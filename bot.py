@@ -4,7 +4,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 # 🔥 PASTE YOUR NEW TOKEN BELOW
 BOT_TOKEN = "8726690172:AAHR-uEgB4E8sGkD6YXgUxAGlAa0HNXTptA"
 
-CHANNELS = ["@HeisenCity", "@HeisenOperator"]
+CHANNELS = [ "@HeisenOperator"]
 REQUIRED_TAG = "#heisen"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -18,7 +18,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 await update.message.reply_text(
                     "⚠️ You must join the following channels to claim rewards:\n\n"
                     "#Heisen\n"
-                    "@HeisenCity\n"
                     "@HeisenOperator\n\n"
                     "Please join all channels and put #heisen in your name to claim the rewards!.\n\n"
                     "After joining, press /start again."
