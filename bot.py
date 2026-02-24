@@ -1,10 +1,10 @@
-import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-BOT_TOKEN = os.getenv("8726690172:AAHR-uEgB4E8sGkD6YXgUxAGlAa0HNXTptA")
+# 🔥 PASTE YOUR NEW TOKEN BELOW
+BOT_TOKEN = "8726690172:AAHR-uEgB4E8sGkD6YXgUxAGlAa0HNXTptA"
 
-CHANNELS = ["@HeisenOperator", "@HeisenCity"]
+CHANNELS = ["@HeisenCity", "@HeisenOperator"]
 REQUIRED_TAG = "#heisen"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -18,8 +18,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 await update.message.reply_text(
                     "⚠️ You must join the following channels to claim rewards:\n\n"
                     "#Heisen\n"
-                    "@HeisenOperator\n"
-                    "@HeisenCity\n\n"
+                    "@HeisenCity\n"
+                    "@HeisenOperator\n\n"
                     "Please join all channels and put #heisen in your name to claim the rewards!.\n\n"
                     "After joining, press /start again."
                 )
@@ -40,9 +40,10 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.reply_text(
         "✅ Task Completed!\n\n"
-        "🎁 PM @HeisenbergActives for free fullz."
+        "🎁 PM @HeisenbergActive free gift."
     )
 
 app = ApplicationBuilder().token(BOT_TOKEN).build()
 app.add_handler(CommandHandler("start", start))
+
 app.run_polling()
