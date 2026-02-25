@@ -45,8 +45,12 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         await update.message.reply_text(
-            "⚠️ You must join all channels first to unlock your referral task.\n\n"
-            "After joining, press /start again.",
+            "⚠️ ⚠️ You must join the following channels to claim rewards:
+
+Operator #Heisen
+
+Please join all channels and put #heisen in your name.\n\n"
+            "After joining, press /start again to claim reward.",
             reply_markup=reply_markup
         )
         return
