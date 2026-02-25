@@ -39,7 +39,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not joined:
         keyboard = [
             [InlineKeyboardButton("🔗Join Heisen.city #Heisen", url="https://t.me/addlist/Hztgg24Yyjc0YmUx")],
-            [InlineKeyboardButton("📢Join Operator: #Heisen", url="https://t.me/HeisenC")],
+            [InlineKeyboardButton("📢Join Operator: #Heisen", url="https://t.me/HeisenOperator")],
         ]
 
         reply_markup = InlineKeyboardMarkup(keyboard)
