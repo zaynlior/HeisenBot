@@ -44,17 +44,19 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         reply_markup = InlineKeyboardMarkup(keyboard)
 
+channel_text = ""
+
+for channel in CHANNELS:
+    chat = await context.bot.get_chat(channel)
+    channel_text += f"{chat.title}\n"
+
 await update.message.reply_text(
-    """⚠️ ⚠️ You must join the following channels to claim rewards:
+    f"""⚠️ You must join the following channels to claim rewards:
 
-Join now and press /start again."""
+{channel_text}
+Please join all channels and put #heisen in your name to claim the rewards!""",
+    reply_markup=reply_markup
 )
-Operator #Heisen
-
-Please join all channels and put #heisen in your name.\n\n"
-            "After joining, press /start again to claim reward.",
-            reply_markup=reply_markup
-        )
         return
 
     # 🔥 STEP 2 — Save user if new
