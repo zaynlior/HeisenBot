@@ -44,9 +44,11 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         reply_markup = InlineKeyboardMarkup(keyboard)
 
-        await update.message.reply_text(
-            "⚠️ ⚠️ You must join the following channels to claim rewards:
+await update.message.reply_text(
+    """⚠️ ⚠️ You must join the following channels to claim rewards:
 
+Join now and press /start again."""
+)
 Operator #Heisen
 
 Please join all channels and put #heisen in your name.\n\n"
