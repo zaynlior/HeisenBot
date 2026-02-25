@@ -15,7 +15,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if REQUIRED_TAG.lower() not in full_name:
         keyboard = [
             [InlineKeyboardButton("Join #Heisen", url="https://t.me/addlist/Hztgg24Yyjc0YmUx")],
-            [InlineKeyboardButton("Join #Heisen Hub ", url="https://t.me/HeisenCity")]
+            [InlineKeyboardButton("Join #Heisen city", url="https://t.me/HeisenCity")]
         ]
 
         reply_markup = InlineKeyboardMarkup(keyboard)
