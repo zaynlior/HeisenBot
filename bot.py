@@ -44,21 +44,16 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         reply_markup = InlineKeyboardMarkup(keyboard)
 
-channel_text = ""
+    await update.message.reply_text(
+        """⚠️ You must join the following channels to claim rewards:
 
-for channel in CHANNELS:
-    chat = await context.bot.get_chat(channel)
-    channel_text += f"{chat.title}\n"
+Operator #Heisen
 
-await update.message.reply_text(
-    f"""⚠️ You must join the following channels to claim rewards:
-
-{channel_text}
 Please join all channels and put #heisen in your name to claim the rewards!""",
-    reply_markup=reply_markup
-)
+        reply_markup=reply_markup
+    )
 
-return
+    return
 
     # 🔥 STEP 2 — Save user if new
     cursor.execute("SELECT * FROM users WHERE user_id=?", (user_id,))
