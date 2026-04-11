@@ -5,8 +5,8 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 # 🔥 PASTE YOUR BOT TOKEN HERE
 BOT_TOKEN = "8726690172:AAHR-uEgB4E8sGkD6YXgUxAGlAa0HNXTptA"
 
-REQUIRED_REFERRALS = 20
-CHANNELS = ["@HeisenOperator"]
+REQUIRED_REFERRALS = 10
+CHANNELS = ["@Heisen operator"]
 
 # Database
 conn = sqlite3.connect("referrals.db", check_same_thread=False)
@@ -38,7 +38,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if not joined:
         keyboard = [
-            [InlineKeyboardButton("🔗Join Heisen.city #Heisen", url="https://t.me/addlist/Hztgg24Yyjc0YmUx")],
+            [InlineKeyboardButton("🔗Join Heisen.city #Heisen", url="https://t.me/addlist/XgsEDHYq8bMzMzc0")],
             [InlineKeyboardButton("📢Join Operator: #Heisen", url="https://t.me/HeisenOperator")],
         ]
 
@@ -86,8 +86,8 @@ Please join all channels and put #heisen in your name to claim the rewards!""",
     if referral_count >= REQUIRED_REFERRALS:
         await update.message.reply_text(
             "✅ Congratulations!\n\n"
-            "🎁 You completed 20 referrals.\n"
-            "PM @HeisenbergActives to claim your reward."
+            "🎁 You completed 10 referrals.\n"
+            "PM @HeisenbergActives with ss from this bot to claim your reward."
         )
         return
 
