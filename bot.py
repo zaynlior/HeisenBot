@@ -5,8 +5,8 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 # 🔥 PASTE YOUR BOT TOKEN HERE
 BOT_TOKEN = "8726690172:AAHR-uEgB4E8sGkD6YXgUxAGlAa0HNXTptA"
 
-REQUIRED_REFERRALS = 10
-CHANNELS = ["@Heisen operator"]
+REQUIRED_REFERRALS = 5
+CHANNELS = ["@HeisenbergOnly"]
 
 # Database
 conn = sqlite3.connect("referrals.db", check_same_thread=False)
