@@ -4,11 +4,11 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from telegram.error import BadRequest
 
 # ⚠️ SECURITY WARNING: Paste your NEW token here after revoking the leaked one in BotFather!
-BOT_TOKEN = "YOUR_NEW_BOT_TOKEN_HERE"
+BOT_TOKEN = "8726690172:AAESfNdEmrH7GKE2GgcOh2vHNoomHDjmHao"
 
 REQUIRED_REFERRALS = 6
 # 🔧 FIX: Channel usernames must include the '@' symbol. The bot MUST be an admin in this channel.
-CHANNELS = ["@Heisenberg"]
+CHANNELS = ["@HeisenbergOnly"]
 
 # Database
 conn = sqlite3.connect("referrals.db", check_same_thread=False)
@@ -44,8 +44,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if not joined:
         keyboard = [
-            [InlineKeyboardButton("🔗Join Heisen.city #Heisen", url="https://t.me/addlist/XgsEDHMz")],
-            [InlineKeyboardButton("📢Join Operator: #Hesen", url="https://t.me/HeiseegO")],
+            [InlineKeyboardButton("🔗Join Heisen.city #Heisen", url="https://t.me/addlist/N6MP3EjudaA1M2Jh")],
+            [InlineKeyboardButton("📢Join Heisenberg: #Hesen", url="https://t.me/HeisenbergOnly")],
         ]
 
         reply_markup = InlineKeyboardMarkup(keyboard)
