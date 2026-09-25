@@ -3,9 +3,9 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 # 🔥 PASTE YOUR BOT TOKEN HERE
-BOT_TOKEN = "8726690172:AAHR-uEgB4E8sGkD6YXgUxAGlAa0HNXTptA"
+BOT_TOKEN = "8726690172:AAGi4H-LBB9plcdfpWh5oCjgQPnDVB_WM1I"
 
-REQUIRED_REFERRALS = 5
+REQUIRED_REFERRALS = 6
 CHANNELS = ["Heisenberg"]
 
 # Database
