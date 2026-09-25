@@ -6,7 +6,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 BOT_TOKEN = "8726690172:AAHR-uEgB4E8sGkD6YXgUxAGlAa0HNXTptA"
 
 REQUIRED_REFERRALS = 5
-CHANNELS = ["@HeisenbergOnly"]
+CHANNELS = ["Heisenberg"]
 
 # Database
 conn = sqlite3.connect("referrals.db", check_same_thread=False)
@@ -39,7 +39,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not joined:
         keyboard = [
             [InlineKeyboardButton("🔗Join Heisen.city #Heisen", url="https://t.me/addlist/XgsEDHYq8bMzMzc0")],
-            [InlineKeyboardButton("📢Join Operator: #Heisen", url="https://t.me/HeisenOperator")],
+            [InlineKeyboardButton("📢Join Operator: #Heisen", url="https://t.me/HeisenbergOnly")],
         ]
 
         reply_markup = InlineKeyboardMarkup(keyboard)
