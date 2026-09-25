@@ -1,12 +1,14 @@
 import sqlite3
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+from telegram.error import BadRequest
 
-# 🔥 PASTE YOUR BOT TOKEN HERE
-BOT_TOKEN = "8726690172:AAGi4H-LBB9plcdfpWh5oCjgQPnDVB_WM1I"
+# ⚠️ SECURITY WARNING: Paste your NEW token here after revoking the leaked one in BotFather!
+BOT_TOKEN = "YOUR_NEW_BOT_TOKEN_HERE"
 
 REQUIRED_REFERRALS = 6
-CHANNELS = ["Heisenberg"]
+# 🔧 FIX: Channel usernames must include the '@' symbol. The bot MUST be an admin in this channel.
+CHANNELS = ["@Heisenberg"]
 
 # Database
 conn = sqlite3.connect("referrals.db", check_same_thread=False)
@@ -23,8 +25,12 @@ conn.commit()
 
 async def check_channels(user_id, context):
     for channel in CHANNELS:
-        member = await context.bot.get_chat_member(channel, user_id)
-        if member.status not in ["member", "administrator", "creator"]:
+        try:
+            member = await context.bot.get_chat_member(channel, user_id)
+            if member.status not in ["member", "administrator", "creator"]:
+                return False
+        except BadRequest:
+            # 🔧 FIX: Handle cases where the user isn't found or the bot isn't an admin
             return False
     return True
 
@@ -38,18 +44,16 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if not joined:
         keyboard = [
-            [InlineKeyboardButton("🔗Join Heisen.city #Heisen", url="https://t.me/addlist/XgsEDHYq8bMzMzc0")],
-            [InlineKeyboardButton("📢Join Operator: #Heisen", url="https://t.me/HeisenbergOnly")],
+            [InlineKeyboardButton("🔗Join Heisen.city #Heisen", url="https://t.me/addlist/XgsEDHMz")],
+            [InlineKeyboardButton("📢Join Operator: #Hesen", url="https://t.me/HeiseegO")],
         ]
 
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         await update.message.reply_text(
-            """⚠️ You must join the following channels to claim rewards:
-
-Operator #Heisen
-
-Please join all channels and put #heisen in your name to claim the rewards!""",
+            "⚠️ You must join the following channels to claim rewards:\n\n"
+            "Operator #Heisen\n\n"
+            "Please join all channels and put #heisen in your name to claim the rewards!",
             reply_markup=reply_markup
         )
         return
@@ -72,7 +76,7 @@ Please join all channels and put #heisen in your name to claim the rewards!""",
                         (referrer_id,)
                     )
                     conn.commit()
-            except:
+            except ValueError:
                 pass
 
     # 🔥 STEP 3 — Get referral count
@@ -100,7 +104,9 @@ Please join all channels and put #heisen in your name to claim the rewards!""",
     )
 
 
-app = ApplicationBuilder().token(BOT_TOKEN).build()
-app.add_handler(CommandHandler("start", start))
-
-app.run_polling()
+if __name__ == "__main__":
+    app = ApplicationBuilder().token(BOT_TOKEN).build()
+    app.add_handler(CommandHandler("start", start))
+    
+    # 🔧 FIX: drop_pending_updates ignores old spammed /start commands from when the bot was frozen
+    app.run_polling(drop_pending_updates=True)
