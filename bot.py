@@ -4,7 +4,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from telegram.error import BadRequest
 
 # ⚠️ SECURITY WARNING: Paste your NEW token here after revoking the leaked one in BotFather!
-BOT_TOKEN = "8726690172:AAESfNdEmrH7GKE2GgcOh2vHNoomHDjmHao"
+BOT_TOKEN = "8250269828:AAFL8L7tPc-WL1HGQb5ELXt0WaA-04aUS9M"
 
 REQUIRED_REFERRALS = 6
 # 🔧 FIX: Channel usernames must include the '@' symbol. The bot MUST be an admin in this channel.
